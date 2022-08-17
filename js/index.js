@@ -12,3 +12,11 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    let usuario = JSON.parse(localStorage.getItem('item'));
+
+    if (usuario== null){  
+        location.href="login.html";
+    }
+})
