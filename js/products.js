@@ -1,4 +1,6 @@
-const listado = "https://japceibal.github.io/emercado-api/cats_products/101.json"
+const cats = {"Autos":101, "Juguetes":102, "Muebles":103, "Herramientas":104, "Computadoras":105, "Vestimenta":106, "Electrodomésticos":107,"Deporte":108,"Celulares":107}; // Creamos un objeto para darle la correspondencia de los números a las palabras.
+let catID = localStorage.getItem("catID"); // recibimos del localstorage el catID para qué JSON interpretar en el URL.
+const listado = `https://japceibal.github.io/emercado-api/cats_products/${cats[catID]}.json`; //En la zona del url que identifica el catID de los JSON, pongo el objeto cats con su respectivo catID para generalizarlo dependiendo de qué local storage se abrirá (101, 102, 103, 104, ect).
 let lista = [];
 
 function show_listAutos(autos){

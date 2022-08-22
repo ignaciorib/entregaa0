@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+    
 });
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -18,5 +19,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     if (usuario== null){  
         location.href="login.html";
+    } else {
+        document.getElementById('maili').innerHTML= usuario.mail;
     }
 })

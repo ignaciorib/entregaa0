@@ -188,3 +188,9 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+#maili {
+  color: azure;
+  padding: 10px 20px;
+  font-size: 2ch;
+}
