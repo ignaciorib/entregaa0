@@ -194,3 +194,8 @@ a.custom-card:hover {
   padding: 10px 20px;
   font-size: 2ch;
 }
+
+/*barra de buscar*/
+#buscar{
+  margin-left: 11px ;
+}

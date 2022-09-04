@@ -45,8 +45,46 @@
         <p>Verás aquí todos los productos de la categoría Autos.</p>
         <br>
       </div>
+       <!-- filtros copiamos el html de categories de los botones y cambiamos los valores de los labels--> 
       <div class="container">
-        <div id="listaDeAutos">
+        <div class="row">
+          <div class="col text-end">
+            <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+              <button class="btn btn-light btn-block" id="arriba"><i class="fas fa-sort-amount-up"></i>$</button>
+              <button class="btn btn-light btn-block" id="abajo"><i class="fas fa-sort-amount-down mr-1"></i>$</button>
+              <button class="btn btn-light btn-block" id="rel"><i class="fas fa-sort-amount-down mr-1"></i>Rel.</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
+            <div class="row container p-0 m-0">
+              <div class="col">
+                <p class="font-weight-normal text-end my-2">Precio</p>
+              </div>
+              <div class="col">
+                <input class="form-control" type="number" placeholder="min." id="minimo">
+              </div>
+              <div class="col">
+                <input class="form-control" type="number" placeholder="máx." id="maximo">
+              </div>
+              <div class="col-3 p-0">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-light btn-block" id="filtro">Filtrar</button>
+                  <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- filtros -->
+        <!--desafiate-->  
+      <div class="col-3">
+        <input class="form-control" type="search" placeholder="Buscar producto" id="buscar">
+      </div>
+       <!--desafiate-->
+      <div class="container">
+        <div id="listaDeArticulos">
 
         </div>
       </div>
