@@ -199,3 +199,45 @@ a.custom-card:hover {
 #buscar{
   margin-left: 11px ;
 }
+.contenedor-fotos{
+  display:flex;
+}
+.contenedor-fotos img{
+  max-width: 35%;
+}
+.Yap{
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.562);
+}
+.contenedor-imagenes{
+  display: flex;
+    width: 500px;
+    flex-direction: column;
+}
+/*Css de la posición de las imagenes relacionadas*/
+#rel{
+  display: flex;
+  margin-left: 115px;
+}
+#carouselExampleControls {
+  width: 500px;
+}
+
+th, td {
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
+table{
+  border-spacing: 300px;
+}
+#finalizar{
+  width: 25cm;
+  margin-left: 4cm;
+}
+.papelera{
+  background-color: #fff;
+}
+

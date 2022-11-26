@@ -48,9 +48,8 @@ function showCategoriesList(){
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
-    //cambié category.ID por category.name para tomar el name del JSON y darle el valor al catID(en la función setCatID).
             htmlContentToAppend += `
-            <div onclick="setCatID('${category.name}')" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setCatID('${category.id}')" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${category.imgSrc}" alt="${category.description}" class="img-thumbnail">

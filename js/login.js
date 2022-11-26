@@ -5,7 +5,7 @@ function login (){
 
     if (usuario.mail != "" && usuario.contraseña != ""){
         
-        localStorage.setItem('item', JSON.stringify(usuario));
+        localStorage.setItem('user', JSON.stringify(usuario)) ;
         location.href = "index.html";
     } else {
         alert("¡Usuario y clave son requeridos!");

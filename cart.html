@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <!--Modal-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!--Modal-->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -30,6 +36,16 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <div class="dropdown">
+              <button id="maili" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li id="cerrar"><a class="dropdown-item" href="login.html">Cerrar Sesión</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -37,10 +53,153 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+          <h1 style="text-align: center;">Carrito de compras</h1>
+          <div style="text-align: left; margin-left: 1cm;">
+          <h4>Articulos a comprar</h4>
+            <table>
+              <thead class="text-center">
+                <tr style="border-bottom: 1px solid black;">
+                  <th></th>
+                  <th >Nombre</th>
+                  <th>Costo</th>
+                  <th>Cantidad</th>
+                  <th>Subtotal</th>
+                </tr>
+          </thead>
+          <tbody id="nuevaCompra">
+
+          </tbody>
+        </table>     
+        <hr>
+        <hr>
+        <br>
+        <form action="#" method="get" class="row mt-4 needs-validation" novalidate>
+          <h4>Tipo de envío</h4>
+          <input type="radio" name="envio" value=0.15 checked>Premium 2 a 5 días (15%)
+          <br>
+          <input type="radio" name="envio" value=0.07>Express 5 a 8 días (7%)
+          <br>
+          <input type="radio" name="envio" value=0.05>Standard 12 a 15 días (5%)
+          <br>
+          <br>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="calle" class="form-label" >Calle</label>
+                <input type="text" class="form-control" id="calle" style="width:13cm" required>
+                <div class="invalid-feedback">
+                  Ingresa una calle.
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="numero" class="form-label">Numero</label>
+                <input type="text" class="form-control" id="numero" style="width:6cm" required>
+                <div class="invalid-feedback">
+                  Ingresa un número.
+                </div>
+              </div>
+  
+              <div class="col-12">
+                <label for="esquina" class="form-label">Esquina</label>
+                <input type="text" class="form-control" id="esquina" style="width:13cm" required>
+                <div class="invalid-feedback">
+                  Ingresa una esquina.
+                </div>
+              </div>
+              <h3>Costos</h3>
+            <ul class="list-group">
+            <li class="list-group-item"><p><strong> Subtotal</strong> <br> Costo unitario del producto por cantidad. <span style="margin-left: 17cm" id="sub"></span></p></li>
+            <li class="list-group-item"><p><strong> Costo de envío</strong> <br> Según el tipo de envío. <span style="margin-left: 20.8cm" id="subC"></span></p></li>
+            <li class="list-group-item"><p><strong> Total ($) <span style="margin-left: 23.3cm" id="total"></span></p></strong></li>
+            </ul>
+            <hr>
+            <h3>Forma de pago</h3>
+       <!-- Button trigger modal -->
+            <div>
+              <span id="span">No ha seleccionado</span> <button type="button" class="btn btn-link ps-0" data-toggle="modal" data-target="#exampleModalCenter">
+                Seleccionar</button>
+                </div>
+            
+
+
+              <button class="btn btn-primary" id="comprar" type="submit">Finalizar compra</button>
+              <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+                <p>¡Has comprado con éxito!</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+                <p>Los datos ingresados no cumplen con los requisitos solicitados</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              
+  
+  
+            </div>
+                    <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Forma de pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="aver" class="modal-body">
+        <br>
+      <div>
+        <input type="radio" name="pago" value="c" id="opt1" required>Tarjeta de crédito
+        <hr>
+      </div>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="card" class="form-label" >Numero de tarjeta</label>
+          <input type="text" class="form-control" id="card" placeholder="#### #### #### ####" minlength="16" maxlength="19" required>
+          <div class="invalid-feedback">
+            Debe ingresar un número.
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <label for="codigo" class="form-label">Código de seg.</label>
+          <input type="text" class="form-control" id="codigo" style="width:3cm" placeholder="###" minlength="3" maxlength="3" required>
+          <div class="invalid-feedback">
+            Debe ingresar un código.
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <label for="vencimiento" class="form-label" >Vencimiento (MM/AA)</label>
+          <input type="text" class="form-control" id="vencimiento" placeholder="##/##" minlength="5" maxlength="5" required>
+          <div class="invalid-feedback">
+            Debe seleccionar una fecha.
+          </div>
+        </div>
+        <div>
+          <input type="radio" name="pago" value="c" id="opt2" required>Transferencia bancaria
+          <hr>
+        </div>
+          <div class="col-sm-6">
+            <label for="account" class="form-label" >Número de cuenta</label>
+            <input type="number" class="form-control" id="account" required>
+            <div class="invalid-feedback">
+              Debe ingresar una cuenta.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="modal-footer">
+       <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+       <!-- <button type="button" class="btn btn-primary">Cerrar</button>-->
       </div>
     </div>
+  </div>
+</div>
+       <!--Modal-->
+        </form>
+    </div>
+  </div>
   </main>
   <footer class="text-muted">
     <div class="container">

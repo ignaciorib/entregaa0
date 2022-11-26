@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    let usuario = JSON.parse(localStorage.getItem('item'));
+    let usuario = JSON.parse(localStorage.getItem('user'));
 
     if (usuario== null){  
         location.href="login.html";
@@ -23,3 +23,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         document.getElementById('maili').innerHTML= usuario.mail;
     }
 })
+cerrar.addEventListener("click", () => {
+    localStorage.clear();
+    location. reload();
+  });
